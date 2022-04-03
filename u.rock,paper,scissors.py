@@ -10,10 +10,10 @@ while True:
     if user == computer:
         print ('It\'s a tie')
     if user=="q":
-        print ("your score: "+str(counter))
+        break
     if is_win(user,computer):
         counter=counter+1
         print( "Whoo..you won!")
     if is_win(computer,user):
         print( 'Computer won this game:(')
-    
+    print ("your score: "+str(counter))
