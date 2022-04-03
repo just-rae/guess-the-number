@@ -5,7 +5,7 @@ def is_win(player, opponent):
         return True
 counter=0
 while True:
-    user = input("What's your choice? 'r' for rock, 'p' for paper, 'l' for lizard ,'sp' for spock,'s' for scissors\n. Press q to quit ").lower()
+    user = input("do u want to play? 'r' for rock, 'p' for paper, 'l' for lizard ,'sp' for spock,'s' for scissors\n. Press q to quit ").lower()
     computer = random.choice(['r', 'p', 's'])
     if user == computer:
         print ('It\'s a tie')
