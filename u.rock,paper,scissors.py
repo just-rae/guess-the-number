@@ -16,4 +16,4 @@ while True:
         print( "Whoo..you won!")
     if is_win(computer,user):
         print( 'Computer won this game:(')
-    print ("your score: "+str(counter))
+print ("your score: "+str(counter))
