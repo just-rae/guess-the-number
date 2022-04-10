@@ -1,2 +1,0 @@
-Emessages=["good job!", "your guess is correct, keep guessing!","you're doing great,keep going!","you're very good at this!","nice!"]
-Bmessages=["who guesses this letter in hangman?","use your 2 left brain cells","did your little brother guess this?","All these letters and you choose this?"]
