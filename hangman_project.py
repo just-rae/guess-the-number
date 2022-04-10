@@ -6,7 +6,7 @@ from messages_hangman import Emessages
 from messages_hangman import Bmessages 
 import time
 picture="ʕ•́ᴥ•̀ʔっ♡"
-#unique change is neart the end of the code in an else statement that runs when the player wins. 
+#unique change is near the end of the code in an else statement that runs when the player wins. 
 def get_valid_word(words):
     word = random.choice(words)  # randomly chooses something from the list
     while '-' in word or ' ' in word or 'rai' in word or 'zimmerman' in word:
