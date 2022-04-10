@@ -1,9 +1,9 @@
 import random
-from words import words
+from words_hangman import words
 from hangman_Visual import lives_visual_dict
 import string
-from messages import Emessages
-from messages import Bmessages 
+from messages_hangman import Emessages
+from messages_hangman import Bmessages 
 import time
 picture="ʕ•́ᴥ•̀ʔっ♡"
 #unique change is neart the end of the code in an else statement that runs when the player wins. 
