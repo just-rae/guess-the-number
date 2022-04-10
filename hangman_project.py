@@ -65,10 +65,7 @@ def hangman():
         print(picture)
 
         
-        
-
-if __name__ == '__main__':
-    hangman()
+hangman()
 def playAgain():
     # This function returns True if the player wants to play again;otherwise, it returns False.
     print('Do you want to play again? (yes or no)')
