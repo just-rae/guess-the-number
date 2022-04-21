@@ -87,7 +87,7 @@ while True:
     print("You got " + str(score) + " questions correct!")
     print("You got " + str((score / 4) * 100) + "%.")
     replay=input("do u want to replay? ")
-    if replay=="yes".lower():
+    if replay.lower()=="yes":
         continue
     else:
         break
