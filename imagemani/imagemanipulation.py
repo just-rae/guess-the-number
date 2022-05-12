@@ -89,7 +89,7 @@ while True:
 #lets user view edited images
 while True:
     try:
-        foldername=input("type the folder in which the picture is in if you would like to view your edited picture. Type q to quit ").lower()
+        foldername=input("type the folder in which the picture is if you would like to view your edited picture. Type q to quit ").lower()
         filename=input("type the picture file name if you would like to view your edited picture. ").lower()
         if foldername =="q":
             break
