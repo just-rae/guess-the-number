@@ -90,9 +90,13 @@ while True:
 
 #lets user view edited images
 while True:
+    #try and except statement to prevent potential errors from the user inputs
     try:
-        view=input("type the picture folder name if you would like to view your edited picture. Type a random character to quit.")
-        view_image=Image.open(view)
+        foldername=input("type the folder in which the picture is in if you would like to view your edited picture. Type q to quit ").lower()
+        if foldername =="q":
+            break
+        filename=input("type the picture file name. ").lower()
+        view_image=Image.open(f'{foldername}/'+filename)
         view_image.show()
     except:
         print('file does not exist or u typed it incorrectly')
