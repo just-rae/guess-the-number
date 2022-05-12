@@ -13,7 +13,7 @@ while True:
     if user_confirmation=="yes":
         break
 while True:
-    choice=input("How would u like to modify ur image(resize,png,black/white,blur,enhance,or rotate) type random character to quit").lower()
+    choice=input("How would u like to modify ur image(resize,png,black/white,blur,enhance,or rotate) type random character to quit" ).lower()
     #rotates the user's chosen image and shows changes
     if choice=="rotate":
         #try and except statement to prevent potential errors from the user input
@@ -50,12 +50,14 @@ while True:
             image2.show()
         except:
             print("input must be an integer")
+            
     #changes picture to b&w and shows changes
     elif choice=="black/white":
         image1=Image.open(user_choice + '.jpg')
         image1.convert(mode='L').save(user_choice+'_blackwhite.jpg')
         image2= Image.open(user_choice+'_blackwhite.jpg')
         image2.show()
+        
     #changes jpg picture to png and shows it
     elif choice=="png":
         image1=Image.open(user_choice + ".jpg")
@@ -74,14 +76,14 @@ while True:
             img_light.save(user_choice+'_enhanced.jpg')
             image2= Image.open(user_choice+'_enhanced.jpg')
             image2.show()
-         except:
+        except:
             print("input must be an integer or a decimal")
 
     else:
         print("invalid response.")
         break
 
-#lets user view edied images
+#lets user view edited images
 while True:
     try:
         view=input("type the picture folder name if you would like to view your edited picture. Type a random character to quit.")
