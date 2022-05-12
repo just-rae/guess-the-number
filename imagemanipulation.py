@@ -14,7 +14,7 @@ while True:
         break
 
 while True:
-    choice=input("How would u like to modify ur image(resize,png,black/white,blur,enhance,or rotate) ").lower()
+    choice=input("How would u like to modify ur image(resize,png,black/white,blur,enhance,or rotate) type q to quit ").lower()
      #rotates the user's chosen image and shows changes
     if choice=="rotate":
         #try and except statement to prevent potential errors from the user input
@@ -78,10 +78,12 @@ while True:
             image2.show()
         except:
             print("input has to be an integer or a decimal")
+    elif choice=="q":
+        break
 
     else:
         print("invalid response.")
-        break
+      
 
 #lets user view edited images
 while True:
