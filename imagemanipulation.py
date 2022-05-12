@@ -13,7 +13,7 @@ while True:
         user_confirmation=input("Is this the correct image?(yes/no)").lower()
         if user_confirmation=="yes":
             break
-     except:
+    except:
         print("invalid input")
 
 while True:
