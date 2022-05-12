@@ -36,12 +36,12 @@ while True:
         #try and except statement to prevent potential errors from the user input
         try:
             image1=Image.open(user_choice + ".jpg")
-            choose=int(input("choose 1-3 (size_200='1'/size_400='2'/size_600='3'): "))
+            choose=int(input("choose 0-2 (size_200='0'/size_400='1'/size_600='2'): "))
             image1.resize(sizes[choose]).save('resized pics/'+user_choice+'_resize.jpg')
             image2= Image.open('resized pics/'+user_choice+'_resize.jpg')
             image2.show()
         except:
-            print("you must choose a number between 0 and 4")
+            print("you must choose a number between -1 and 3")
 
     #blurs user's chosen image and shows changes
     elif choice=="blur":
