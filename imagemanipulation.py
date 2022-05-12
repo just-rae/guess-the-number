@@ -6,12 +6,15 @@ import os
 sizes=[(200,200),(400,400),(600,600)]
 #lets user choose picture and breaks out of the loop when user confirms chosen image
 while True:
-    user_choice=input("which image would u like to modify?(pic1-pic10)").lower()
-    usershow=Image.open(user_choice +".jpg")
-    usershow.show()
-    user_confirmation=input("Is this the correct image?(yes/no)").lower()
-    if user_confirmation=="yes":
-        break
+    try:
+        user_choice=input("which image would u like to modify?(pic1-pic10)").lower()
+        usershow=Image.open(user_choice +".jpg")
+        usershow.show()
+        user_confirmation=input("Is this the correct image?(yes/no)").lower()
+        if user_confirmation=="yes":
+            break
+   except:
+        print("invalid input")
 
 while True:
     choice=input("How would u like to modify ur image(resize,png,black/white,blur,enhance,or rotate) type q to quit ").lower()
