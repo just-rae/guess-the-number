@@ -15,7 +15,6 @@ while True:
             break
     except:
         print("invalid input")
-
 while True:
     choice=input("How would u like to modify ur image(resize,png,black/white,blur,enhance,or rotate) type q to quit ").lower()
      #rotates the user's chosen image and shows changes
@@ -36,12 +35,12 @@ while True:
         #try and except statement to prevent potential errors from the user input
         try:
             image1=Image.open(user_choice + ".jpg")
-            choose=int(input("choose 0-2 (size_200='0'/size_400='1'/size_600='2'): "))
+            choose=int(input("choose 1-3 (size_200='1'/size_400='2'/size_600='3'): "))
             image1.resize(sizes[choose]).save('resized pics/'+user_choice+'_resize.jpg')
             image2= Image.open('resized pics/'+user_choice+'_resize.jpg')
             image2.show()
         except:
-            print("you must choose a number between -1 and 3")
+            print("you must choose a number between 0 and 4")
 
     #blurs user's chosen image and shows changes
     elif choice=="blur":
@@ -86,17 +85,16 @@ while True:
 
     else:
         print("invalid response.")
-      
-
+    
 #lets user view edited images
 while True:
-    #try and except statement to prevent potential errors from the user inputs
     try:
         foldername=input("type the folder in which the picture is in if you would like to view your edited picture. Type q to quit ").lower()
+        filename=input("type the picture file name if you would like to view your edited picture. ").lower()
         if foldername =="q":
             break
-        filename=input("type the picture file name. ").lower()
         view_image=Image.open(f'{foldername}/'+filename)
         view_image.show()
     except:
-        print('file or folder does not exist or u typed it incorrectly')
+        print('file does not exist or u typed it incorrectly')
+    
