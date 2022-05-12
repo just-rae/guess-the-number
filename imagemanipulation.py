@@ -99,4 +99,4 @@ while True:
         view_image=Image.open(f'{foldername}/'+filename)
         view_image.show()
     except:
-        print('file does not exist or u typed it incorrectly')
+        print('file or folder does not exist or u typed it incorrectly')
