@@ -100,4 +100,3 @@ while True:
         view_image.show()
     except:
         print('file does not exist or u typed it incorrectly')
-        break
