@@ -35,16 +35,19 @@ p1score=0
 p1_HIT = pygame.USEREVENT + 1
 p2_HIT = pygame.USEREVENT + 2
 
+#Loads and Resizes player1 image
 p1_IMAGE = pygame.image.load(
     os.path.join('assets', 'pic1.png'))
 player1 = pygame.transform.rotate(pygame.transform.scale(
     p1_IMAGE, (OBJECT_WIDTH, OBJECT_HEIGHT)), 180)
 
+#Loads and resizes player2 image
 p2_IMAGE = pygame.image.load(
     os.path.join('assets', 'pic2.png'))
 player2 = pygame.transform.scale(
     p2_IMAGE, (OBJECT_WIDTH, OBJECT_HEIGHT))
 
+#Loads the background image
 background = pygame.transform.scale(pygame.image.load(
     os.path.join('assets', 'background.png')), (WIDTH, HEIGHT))
 
@@ -71,8 +74,8 @@ def draw_window(p2, p1, p2_bullets, p1_bullets, p2_health, p1_health):
 
     pygame.display.update()
 
-
-def yellow_handle_movement(keys_pressed, yellow):
+#Player1 movement keys
+def Player1_handle_movement(keys_pressed, yellow):
     if keys_pressed[pygame.K_d] and yellow.x - VEL > 0:  # LEFT
         yellow.x -= VEL
     if keys_pressed[pygame.K_g] and yellow.x + VEL + yellow.width < WIDTH:  # RIGHT
@@ -82,8 +85,8 @@ def yellow_handle_movement(keys_pressed, yellow):
     if keys_pressed[pygame.K_f] and yellow.y + VEL + yellow.height < HEIGHT - 15:  # DOWN
         yellow.y += VEL
 
-
-def red_handle_movement(keys_pressed, p2):
+#Player2 movement keys
+def Player2_handle_movement(keys_pressed, p2):
     if keys_pressed[pygame.K_LEFT] and p2.x - VEL > 0:  # LEFT
         p2.x -= VEL
     if keys_pressed[pygame.K_RIGHT] and p2.x + VEL + p2.width < WIDTH:  # RIGHT
@@ -93,7 +96,7 @@ def red_handle_movement(keys_pressed, p2):
     if keys_pressed[pygame.K_DOWN] and p2.y + VEL + p2.height < BORDER.y :  # DOWN
         p2.y += VEL
 
-
+#Controls bullets
 def handle_bullets(p1_bullets, p2_bullets, p1, p2):
     for bullet in p1_bullets:
         bullet.y -= BULLET_VEL
@@ -111,7 +114,7 @@ def handle_bullets(p1_bullets, p2_bullets, p1, p2):
         elif bullet.y > HEIGHT :
             p2_bullets.remove(bullet)
 
-
+#Function that displays the winner text
 def draw_winner(text):
     draw_text = WINNER_FONT.render(text, 1, WHITE)
     WIN.blit(draw_text, (WIDTH/2 - draw_text.get_width() /
@@ -149,7 +152,8 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 pygame.quit()
-
+                
+            #checks if the bullet keys are pressed
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_z and len(p1_bullets) < MAX_BULLETS:
                     bullet = pygame.Rect(
@@ -162,7 +166,8 @@ def main():
                         p2.x + p2.width//2 , p2.y + p2.height//2 - 2, 5, 10)
                     p2_bullets.append(bullet)
                     BULLET_FIRE_SOUND.play()
-
+            
+            #Decreases health when there's collision
             if event.type == p2_HIT:
                 p2_health -= 1
                 BULLET_HIT_SOUND.play()
@@ -170,7 +175,7 @@ def main():
             if event.type == p1_HIT:
                 p1_health -= 1
                 BULLET_HIT_SOUND.play()
-
+        
         winner_text = ""
         if p2_health <= 0:
             winner_text = "Player 1 won!"
@@ -182,15 +187,16 @@ def main():
             p2score=p2score+1
             draw_score(p1score,p2score)
             
-
+        #displays winner text
         if winner_text != "":
             draw_winner(winner_text)
             break
         
 
         keys_pressed = pygame.key.get_pressed()
-        yellow_handle_movement(keys_pressed, p1)
-        red_handle_movement(keys_pressed, p2)
+        #calls the functions
+        Player1_handle_movement(keys_pressed, p1)
+        Player2_handle_movement(keys_pressed, p2)
 
         handle_bullets(p1_bullets, p2_bullets, p1, p2)
 
