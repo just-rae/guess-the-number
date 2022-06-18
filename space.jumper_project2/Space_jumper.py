@@ -6,6 +6,7 @@ pygame.mixer.init()
 
 BLACK = (0, 0, 0)
 
+#game keys: jump=k / restart= space
 class Player(pygame.sprite.Sprite):
 	def __init__(self):
 		super().__init__()
